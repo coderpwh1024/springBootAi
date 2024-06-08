@@ -24,7 +24,9 @@ public class AiController {
 
     @GetMapping("/ai/generate")
     public RestResponse generate(@RequestParam(value = "message", defaultValue = "Tell me a joke") String message) {
-        return RestResponse.succuess(openAiChatClient.call(message));
+        String result = openAiChatClient.call(message);
+        System.out.println("result:"+result);
+        return RestResponse.succuess(result);
     }
 
     @GetMapping("/ai/generateStream")
