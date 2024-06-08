@@ -18,10 +18,8 @@ import reactor.core.publisher.Flux;
 public class AiController {
 
 
-
-
-     @Resource
-     private OpenAiChatClient openAiChatClient;
+    @Resource
+    private OpenAiChatClient openAiChatClient;
 
 
     @GetMapping("/ai/generate")
@@ -31,7 +29,8 @@ public class AiController {
 
     @GetMapping("/ai/generateStream")
     public Flux<ChatResponse> generateStream(@RequestParam(value = "message", defaultValue = "Tell me a joke") String message) {
-        Prompt prompt = new Prompt(new UserMessage(message));
+//        Prompt prompt = new Prompt(new UserMessage(message));
+        Prompt prompt = new Prompt(message);
         return openAiChatClient.stream(prompt);
     }
 
