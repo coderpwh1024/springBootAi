@@ -1,0 +1,12 @@
+
+spring:
+  ai:
+    openai:
+      api-key: sk-OYLslZxxx
+      chat:
+        options:
+          model: gpt-3.5-turbo
+          temperature: 0.7
+      embedding:
+        options:
+          model: text-embedding-ada-002
